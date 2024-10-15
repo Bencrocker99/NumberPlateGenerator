@@ -8,8 +8,8 @@ namespace NumberPlateGeneration
     {
         const int CUT_OFF_MONTH = 3; // Month that marks the start of a new year
         const int HALFWAY_CUT_OFF_MONTH = 9; // Month that marks halfway through the year
-        const int LATE_YEAR_IDENTIFIER = 50; // Value to add to age identifier if numberplate is halfway through the year or further
-        const int NUMBER_OF_RANDOM_LETTERS = 3; 
+        const int LATE_YEAR_IDENTIFIER = 50; // Value to add to age identifier if number plate is halfway through the year or further
+        const int NUMBER_OF_RANDOM_LETTERS = 3; // How many "random" letters are needed in the number plate
         const int MEMORY_TAG_LENGTH = 2;
 
         int NumberOfValidLetters { get { return _validLetters.Count; } }
@@ -72,7 +72,7 @@ namespace NumberPlateGeneration
             else
             {
                 if (date.Month < CUT_OFF_MONTH)
-                    return (year + LATE_YEAR_IDENTIFIER - 1).ToString();
+                    return (year + LATE_YEAR_IDENTIFIER - 1).ToString(); // As this is within the second half of the previous year
                 else
                     return (year + LATE_YEAR_IDENTIFIER).ToString();
             } 
